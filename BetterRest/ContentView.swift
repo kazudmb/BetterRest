@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var sleepAmount = 8.0
+    @State private var wakeUp = Date()
+    
     var body: some View {
-        Text("Hello, World!")
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        let dateString = formatter.string(from: Date())
+        
+        return DatePicker("Please enter a date", selection: $wakeUp, in: Date()...)
+        .labelsHidden()
     }
 }
 
